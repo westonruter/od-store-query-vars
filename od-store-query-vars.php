@@ -20,23 +20,27 @@
 
 namespace OptimizationDetective\StoreQueryVars;
 
+// Important: If a plugin manually adds query vars which aren't in $wp->public_query_vars then the URL Metric storage will be rejected.
 add_filter(
 	'od_url_metric_schema_root_additional_properties',
 	static function ( array $properties ): array {
 		global $wp;
 		$query_vars_properties = array(
+			// Introduced by od_get_normalized_query_vars().
 			'user_logged_in' => array(
 				'type' => 'boolean',
 			),
 		);
 		foreach ( $wp->public_query_vars as $key ) {
 			$query_vars_properties[ $key ] = array(
-				'type' => array( 'string', 'number' ),
+				'type'      => array( 'string', 'number' ),
+				'maxLength' => 100, // Something reasonable to guard against abuse.
 			);
 		}
 		$properties['queryVars'] = array(
-			'type'       => 'object',
-			'properties' => $query_vars_properties,
+			'type'                 => 'object',
+			'properties'           => $query_vars_properties,
+			'additionalProperties' => false,
 		);
 		return $properties;
 	}
