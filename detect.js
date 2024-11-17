@@ -6,7 +6,7 @@
  */
 export async function finalize( { extendRootData } ) {
 	const script = document.getElementById( 'od-normalized-query-vars' );
-	if ( script instanceof HTMLScriptElement) {
+	if ( script instanceof HTMLScriptElement ) {
 		extendRootData( { queryVars: JSON.parse( script.text ) } );
 	}
 }
