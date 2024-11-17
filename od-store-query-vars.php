@@ -1,8 +1,8 @@
 <?php
 /**
  * Plugin Name: Optimization Detective Store Query Vars
- * Plugin URI: https://gist.github.com/westonruter/???
- * Description: Stores the Query Vars with a URL Metric. This is useful for debugging URL Metrics, in particular what the slug was computed from.
+ * Plugin URI: https://gist.github.com/westonruter/6fb9531ace2ebb86725407311546df58
+ * Description: Stores the Query Vars with a URL Metric in the Optimization Detective plugin. This is useful for debugging URL Metrics, in particular what the slug was computed from.
  * Requires at least: 6.5
  * Requires PHP: 7.2
  * Requires Plugins: optimization-detective
@@ -12,8 +12,8 @@
  * License: GPLv2 or later
  * License URI: https://www.gnu.org/licenses/old-licenses/gpl-2.0.html
  * Text Domain: optimization-detective-store-user-agent
- * Update URI: https://gist.github.com/westonruter/???
- * Gist Plugin URI: https://gist.github.com/westonruter/???
+ * Update URI: https://gist.github.com/westonruter/6fb9531ace2ebb86725407311546df58
+ * Gist Plugin URI: https://gist.github.com/westonruter/6fb9531ace2ebb86725407311546df58
  *
  * @package OptimizationDetective\StoreQueryVars
  */
