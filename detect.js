@@ -1,4 +1,9 @@
 /**
+ * @typedef {import("../optimization-detective/types.ts").FinalizeArgs} FinalizeArgs
+ * @typedef {import("../optimization-detective/types.ts").FinalizeCallback} FinalizeCallback
+ */
+
+/**
  * Finalizes extension.
  *
  * @type {FinalizeCallback}
