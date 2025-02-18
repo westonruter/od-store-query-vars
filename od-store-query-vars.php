@@ -6,7 +6,7 @@
  * Requires at least: 6.5
  * Requires PHP: 7.2
  * Requires Plugins: optimization-detective
- * Version: 0.1.0
+ * Version: 0.1.1
  * Author: Weston Ruter
  * Author URI: https://weston.ruter.net/
  * License: GPLv2 or later
@@ -31,7 +31,11 @@ add_filter(
 				'type' => 'boolean',
 			),
 		);
-		foreach ( $wp->public_query_vars as $key ) {
+
+		/** This filter is documented in wp-includes/class-wp.php */
+		$query_vars = apply_filters( 'query_vars', $wp->public_query_vars );
+
+		foreach ( $query_vars as $key ) {
 			$query_vars_properties[ $key ] = array(
 				'type'      => array( 'string', 'number' ),
 				'maxLength' => 100, // Something reasonable to guard against abuse.
