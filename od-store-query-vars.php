@@ -6,7 +6,7 @@
  * Requires at least: 6.5
  * Requires PHP: 7.2
  * Requires Plugins: optimization-detective
- * Version: 0.1.1
+ * Version: 0.1.2
  * Author: Weston Ruter
  * Author URI: https://weston.ruter.net/
  * License: GPLv2 or later
