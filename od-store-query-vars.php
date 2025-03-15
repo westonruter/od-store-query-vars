@@ -37,7 +37,7 @@ add_filter(
 
 		foreach ( $query_vars as $key ) {
 			$query_vars_properties[ $key ] = array(
-				'type'      => array( 'string', 'number' ),
+				'type'      => array( 'string', 'number', 'boolean' ),
 				'maxLength' => 100, // Something reasonable to guard against abuse.
 			);
 		}
