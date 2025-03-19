@@ -6,7 +6,7 @@
  * Requires at least: 6.5
  * Requires PHP: 7.2
  * Requires Plugins: optimization-detective
- * Version: 0.1.2
+ * Version: 0.1.3
  * Author: Weston Ruter
  * Author URI: https://weston.ruter.net/
  * License: GPLv2 or later
@@ -24,26 +24,14 @@ namespace OptimizationDetective\StoreQueryVars;
 add_filter(
 	'od_url_metric_schema_root_additional_properties',
 	static function ( array $properties ): array {
-		global $wp;
-		$query_vars_properties = array(
-			// Introduced by od_get_normalized_query_vars().
-			'user_logged_in' => array(
-				'type' => 'boolean',
-			),
-		);
-
-		/** This filter is documented in wp-includes/class-wp.php */
-		$query_vars = apply_filters( 'query_vars', $wp->public_query_vars );
-
-		foreach ( $query_vars as $key ) {
-			$query_vars_properties[ $key ] = array(
-				'type'      => array( 'string', 'number', 'boolean' ),
-				'maxLength' => 100, // Something reasonable to guard against abuse.
-			);
-		}
 		$properties['queryVars'] = array(
 			'type'                 => 'object',
-			'properties'           => $query_vars_properties,
+			'patternProperties'    => array(
+				'.+' => array(
+					'type'      => array( 'string', 'number', 'boolean' ),
+					'maxLength' => 100, // Something reasonable to guard against abuse.
+				),
+			),
 			'additionalProperties' => false,
 		);
 		return $properties;
