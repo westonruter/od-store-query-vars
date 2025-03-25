@@ -1,15 +1,15 @@
 /**
- * @typedef {import("../optimization-detective/types.ts").FinalizeArgs} FinalizeArgs
- * @typedef {import("../optimization-detective/types.ts").FinalizeCallback} FinalizeCallback
+ * @typedef {import("../optimization-detective/types.ts").InitializeArgs} InitializeArgs
+ * @typedef {import("../optimization-detective/types.ts").InitializeCallback} InitializeCallback
  */
 
 /**
- * Finalizes extension.
+ * Initializes extension.
  *
- * @type {FinalizeCallback}
- * @param {FinalizeArgs} args Args.
+ * @type {InitializeCallback}
+ * @param {InitializeArgs} args Args.
  */
-export async function finalize( { extendRootData } ) {
+export async function initialize( { extendRootData } ) {
 	const script = document.getElementById( 'od-normalized-query-vars' );
 	if ( script instanceof HTMLScriptElement ) {
 		extendRootData( { queryVars: JSON.parse( script.text ) } );
