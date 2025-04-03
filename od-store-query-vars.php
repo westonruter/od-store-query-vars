@@ -20,6 +20,8 @@
 
 namespace OptimizationDetective\StoreQueryVars;
 
+const VERSION = '0.2.0';
+
 add_action(
 	'od_init',
 	static function ( string $optimization_detective_version ): void {
@@ -36,7 +38,7 @@ add_action(
 						esc_html(
 							sprintf(
 								/* translators: %s is plugin name */
-								__( 'The %s plugin requires a newer version of the Optimization Detective plugin. Please update your plugins.', 'optimization-detective-store-query-vars' ), // phpcs:ignore WordPress.WP.I18n.TextDomainMismatch
+								__( 'The %s plugin requires a newer version of the Optimization Detective plugin. Please update your plugins.', 'od-store-query-vars' ), // phpcs:ignore WordPress.WP.I18n.TextDomainMismatch
 								plugin_basename( __FILE__ )
 							)
 						),
@@ -80,7 +82,7 @@ function filter_url_metric_schema_root_additional_properties( array $properties 
  * @return string[] Extension URLs.
  */
 function filter_extension_module_urls( array $urls ): array {
-	$urls[] = plugins_url( 'detect.js', __FILE__ );
+	$urls[] = plugins_url( add_query_arg( 'ver', VERSION, 'detect.js' ), __FILE__ );
 	return $urls;
 }
 
