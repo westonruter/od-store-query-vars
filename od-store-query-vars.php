@@ -35,7 +35,7 @@ add_action(
 					wp_admin_notice(
 						esc_html(
 							sprintf(
-							/* translators: %s is plugin name */
+								/* translators: %s is plugin name */
 								__( 'The %s plugin requires a newer version of the Optimization Detective plugin. Please update your plugins.', 'optimization-detective-store-query-vars' ), // phpcs:ignore WordPress.WP.I18n.TextDomainMismatch
 								plugin_basename( __FILE__ )
 							)
