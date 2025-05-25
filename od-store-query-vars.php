@@ -94,7 +94,7 @@ function print_normalized_query_vars(): void {
 		return;
 	}
 	wp_print_inline_script_tag(
-		(string) wp_json_encode( od_get_normalized_query_vars() ),
+		(string) wp_json_encode( od_get_normalized_query_vars(), JSON_FORCE_OBJECT ),
 		array(
 			'type' => 'application/json',
 			'id'   => 'od-normalized-query-vars',
